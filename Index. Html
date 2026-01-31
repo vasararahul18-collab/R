@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For You ❤️</title>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      font-family: Arial, sans-serif;
+    }
+
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      width: 300px;
+    }
+
+    h1 {
+      color: #ff3366;
+    }
+
+    button {
+      padding: 10px 22px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 8px;
+    }
+
+    .yes {
+      background-color: #ff3366;
+      color: white;
+    }
+
+    .no {
+      background-color: #ccc;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box" id="step1">
+    <h1>💖 Question 1 💖</h1>
+    <p>Will you be mine forever?</p>
+    <button class="yes" onclick="goToSecond()">YES 💕</button>
+    <button class="no" onmouseover="moveNo(this)">NO 😜</button>
+  </div>
+
+  <script>
+    function goToSecond() {
+      document.getElementById("step1").innerHTML = `
+        <h1>💖 Question 2 💖</h1>
+        <p>I love you cutie ❤️</p>
+        <button class="yes" onclick="finalYes()">I love you too 💕</button>
+        <button class="no" onmouseover="moveNo(this)">Hmm 🙈</button>
+      `;
+    }
+
+    function finalYes() {
+      document.body.innerHTML = `
+        <div style="
+          height:100vh;
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          flex-direction:column;
+          background:#ff7eb3;
+          color:white;
+          font-family:Arial;
+          text-align:center;
+        ">
+          <h1>💘 You said YES twice! 💘</h1>
+          <h2>My heart is yours forever 😍</h2>
+          <p>Happy Propose Day ❤️</p>
+        </div>
+      `;
+    }
+
+    function moveNo(btn) {
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 50);
+      btn.style.left = x + "px";
+      btn.style.top = y + "px";
+    }
+  </script>
+
+</body>
+</html>
